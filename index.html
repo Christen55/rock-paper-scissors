@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Камень ножницы бумага</title>
+    
+</head>
+<body>
+<script src="javascript.js"></script>
+<div class="header">
+    <h1>Сыграй со мной в камень, ножницы, бумагу!</h1>
+
+    <div class="question">
+       <img src="https://kartinkin.net/uploads/posts/2022-02/thumbs/1645868962_57-kartinkin-net-p-voprosi-kartinki-62.jpg" alt="?" class="img">
+       <div class="help">
+        Вводите количество партий, в которое хотите сыграть и  выбираете один из трёх вариантов: "Камень" , "Ножницы" или "Бумага". Компьютер также выбирает один из этих вариантов.
+        <br>Победитель определяется по следующим правилам:
+
+        Бумага побеждает камень («бумага обёртывает камень»).
+        Камень побеждает ножницы («камень затупляет или ломает ножницы»).
+        Ножницы побеждают бумагу («ножницы разрезают бумагу»).
+        Если игроки показали одинаковый знак, то засчитывается ничья и игра переигрывается.
+        <br>Нельзя ставить любой знак больше 3 раз подряд
+       </div>
+    </div>
+
+</div>
+<div class="game">
+
+<button><a href="#field" onclick="play();">Сыграть</a></button>
+
+<div id="field">
+<div id="fieldClose">
+<div id ="qount">
+    <div id="score">Удачи!</div>
+    <div id="square">0:0</div>
+</div>
+
+<div id="table">
+    <div id="description">Начнём!</div>
+<div class="computerChoice">
+    <div><img src="rockComputer.jpeg" alt="Камень" id="rock" class="button"></div>
+    <div><img src="scissorsComputer.jpeg" alt="Ножницы" id="scissors" class="button"></div>
+    <div><img src="paperComputer.jpeg" alt="Бумага" id="paper" class="button"></div> 
+</div>
+
+<div class="playerChoice">
+    <div onclick="random('rock');"><img src="rockPlayer.jpeg" alt="Камень" class="button"></div>
+    <div onclick="random('scissors');"><img src="scissorsPlayer.jpeg" alt="Ножницы" class="button"></div>
+    <div onclick="random('paper');"><img src="paperPlayer.jpeg" alt="Бумага" class="button"></div> 
+</div>
+
+
+</div>
+<span id="close"><a href ="#" class="close">Закрыть</a></span>
+</div>
+</div> 
+</div>
+
+</body>
+</html>
