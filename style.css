@@ -1,0 +1,155 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+    h1{
+        color:blueviolet;
+        text-align: center;
+    }
+
+    .question:hover .help{
+        display: block;
+    }   
+        .img{
+            width: 70px;
+            height: 70px;
+            border: 3px solid rgb(82, 15, 206);
+            border-radius: 35px;
+            display: inline-block;
+            margin-left: 100%;
+        }
+
+        .help
+        {
+            display: none;
+            width:50%;
+            height:min-content;
+            text-align: center;
+            border-style:solid;
+            border-color:rgb(38, 51, 230);
+            border-radius: 10px;
+            display: none;
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left: 0;
+            margin: auto;
+            padding: 8px;
+            background-color: white;
+        }
+
+.game{
+    text-align: center;
+}
+    a{
+        text-decoration: none;
+    }
+
+    #field{
+        display: none;
+        position:static;
+    }
+
+    #field:target{
+        display: block;
+    }
+        #fieldClose{
+            display: flex;
+            justify-content: center;
+        }
+            #qount{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex:1;
+                align-self: center;
+            }
+                #description,
+                #score{
+                    font-size: 24px;
+                    color:rgb(38, 51, 230);
+                    padding: 16px;
+                }
+
+                #square{
+                    font-size: 36px;
+                    color:rgb(38, 51, 230);
+                    border-style:solid;
+                    border-color:rgb(38, 51, 230);
+                    padding: 4px;
+                    width: 100px;
+                    height: max-content; 
+                }
+
+            #table{
+                display: flex;
+                flex-direction: column; 
+                padding: 1%;
+                flex:1;
+            }
+                .playerChoice{
+                    display: flex;
+                    justify-content: center;
+                    position:static;
+                    gap: 8px;
+                    padding: 1%;
+                }
+
+                .playerChoice .button:hover{
+                    border: 3px solid rgb(5, 223, 52);
+                }
+
+                .computerChoice{
+                    display: flex;
+                    justify-content: center;
+                    position:static;
+                    gap: 8px;
+                    padding: 1%;
+                }
+
+                .button{
+                    width: 100px;
+                    height: 200px;
+                    border: 3px solid rgb(18, 22, 68);
+                    border-radius: 5px;
+                }
+                
+                .buttonClick{
+                    border: 3px solid rgb(5, 223, 52);
+                }
+
+            span{
+                display: block;
+                text-align: right;
+                align-self: flex-end;
+                flex:1;
+            }
+
+            
+
+ @media screen and (max-width: 800px){
+    h1{
+        font-size: 250%;
+    }
+
+    #fieldClose{
+        flex-direction: column;
+    }
+
+ }
+@media screen and (max-width: 400px) { 
+    h1{
+        font-size: 200%;
+    }
+    #description,
+    #score{
+        font-size: 18px;
+    }
+
+    #square{
+    width: 70px;
+    font-size: 26px;
+    }
+}
