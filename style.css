@@ -134,6 +134,7 @@
                     font-size: 24px;
                     color:rgb(38, 51, 230);
                     padding: 16px;
+                    flex:1;
                 }
 
                 #square{
@@ -144,6 +145,7 @@
                     padding: 4px;
                     width: 100px;
                     height: max-content; 
+                    flex:1;
                 }
 
             #table{
@@ -247,7 +249,6 @@
     h1{
         font-size: 200%;
     }
-
     #fieldClose{
         flex-direction: column;
     }
@@ -257,19 +258,25 @@
     h1{
         font-size: 150%;
     }
- #description,
+    #description,
     #score{
         font-size: 14px;
     }
-.modal {
-     width: 300px;
-     font-size: 12px;
- }
- .headerModal{
-      font-size:14px;
- }
+    #score{
+        width: 200px; 
+    }
+    .modal {
+        width: 300px;
+        font-size: 12px;
+    }
+    .headerModal{
+        font-size:14px;
+    }
+    #qount{
+        flex-direction:row;
+    }
     #square{
-    width: 60px;
-    font-size: 20px;
+        width: 60px;
+        font-size: 20px;
     }
 }
