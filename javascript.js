@@ -158,11 +158,11 @@ if(k==amountOfBatches){
     }
 
     else if(playerScore<computerScore){
-        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
+        setTimeout(modalAnswer, 1000, `Вы проиграли! ${playerScore}:${computerScore}`);
     }
 
     else if(playerScore==computerScore){
-        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
+        setTimeout(modalAnswer, 1000, `Ничья! ${playerScore}:${computerScore}`);
     }
 }
 
