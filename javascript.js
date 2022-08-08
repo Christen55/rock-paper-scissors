@@ -154,16 +154,15 @@ function random(playerChoice){
 if(k==amountOfBatches){
 
     if(playerScore>computerScore){
-        modalAnswer(`Вы выиграли! ${playerScore}:${computerScore}`);
+        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
     }
 
     else if(playerScore<computerScore){
-        modalAnswer(`Вы програли! ${playerScore}:${computerScore}`);
+        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
     }
 
     else if(playerScore==computerScore){
-        modalAnswer(`Ничья! ${playerScore}:${computerScore}`);
-        
+        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
     }
 }
 
@@ -235,6 +234,11 @@ function pause(choice){
 function modalAnswer(string){
     document.getElementById('headerModalAnswer').innerHTML=string+ '<br />'+ "Хотите сыграть ещё?";
     document.querySelector('.openModalAnswer').click();
+    playerScore=0;
+    computerScore=0;
+    document.getElementById('description').innerHTML='Начнем!';
+    document.getElementById('score').innerHTML='Удачи!';
+    document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;
 }
 
 function modalNumber(){
