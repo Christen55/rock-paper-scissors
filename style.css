@@ -245,7 +245,7 @@
             
 @media screen and (max-width: 800px){
     h1{
-        font-size: 250%;
+        font-size: 200%;
     }
 
     #fieldClose{
@@ -255,13 +255,15 @@
 
 @media screen and (max-width: 400px) { 
     h1{
-        font-size: 200%;
+        font-size: 150%;
     }
     #description,
     #score{
         font-size: 18px;
     }
-
+    .modal {
+         width: 300px;
+    }
     #square{
     width: 70px;
     font-size: 26px;
