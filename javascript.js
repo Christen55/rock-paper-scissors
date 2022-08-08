@@ -1,8 +1,7 @@
-
-let i=0;
-let j=0;
+let playerScore=0;
+let computerScore=0;
 let k=0;
-let num;
+let amountOfBatches;
 let rockPlayer=0;
 let scissorsPlayer=0;
 let paperPlayer=0;
@@ -10,29 +9,24 @@ let rockComputer=0;
 let scissorsComputer=0;
 let paperComputer=0;
 let computerChoice;
+
 function play(){
-    num=prompt("Сколько партий хотите сыграть?", " ");
-    checkNumber(num);
-    i=0;
-    j=0;
+    amountOfBatches=+document.getElementById('number').value;
+    playerScore=0;
+    computerScore=0;
     k=0;
+    rockPlayer=0;
+    scissorsPlayer=0;
+    paperPlayer=0;
     document.getElementById('description').innerHTML='Начнем!';
     document.getElementById('score').innerHTML='Удачи!';
-    document.getElementById('square').innerHTML=`${i}:${j}`;    
+    document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;    
 }
 
-function checkNumber(num){
-    if(isNaN(num)==true)
-    {
-    num=prompt("Это не число. Введите пожалуйста число", " ");
-    checkNumber(num);
-    }
-}
-
- function random(playerChoice){
+function random(playerChoice){
 
     computerChoice=(Math.floor(Math.random()*3)+1);
-    checkChoice(computerChoice);
+    determineComputerChoice(computerChoice);
       
       if(rockComputer>=3 || scissorsComputer>=3 || paperComputer>=3){
           computerChoice = sameChoicesComputer(computerChoice);
@@ -51,27 +45,27 @@ function checkNumber(num){
         {
             case 1:
                 document.getElementById("rock").classList.toggle('buttonClick');
-                i++;
-                j++;
+                playerScore++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
-                setTimeout(stop,1000, "rock");
-                score(i,j);
+                setTimeout(pause,1000, "rock");
+                score(playerScore,computerScore);
                 break;
 
             case 2: 
                 document.getElementById("scissors").classList.toggle('buttonClick');
-                i++;
+                playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Камень затупляет ножницы';
-                setTimeout(stop,1000, "scissors"); 
-                score(i,j);
+                setTimeout(pause,1000, "scissors"); 
+                score(playerScore,computerScore);
                 break;
 
             case 3:  
                 document.getElementById("paper").classList.toggle('buttonClick');
-                j++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Бумага oбёртывает камень';
-                setTimeout(stop,1000, "paper");
-                score(i,j);
+                setTimeout(pause,1000, "paper");
+                score(playerScore,computerScore);
                 break; 
         }
     break;
@@ -87,27 +81,27 @@ function checkNumber(num){
         {
             case 1:     
                 document.getElementById("rock").classList.toggle('buttonClick');
-                j++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Камень затупляет ножницы';
-                setTimeout(stop,1000, "rock");
-                score(i,j);
+                setTimeout(pause,1000, "rock");
+                score(playerScore,computerScore);
                 break;
 
             case 2:
                 document.getElementById("scissors").classList.toggle('buttonClick');
-                i++;
-                j++;
+                playerScore++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
-                setTimeout(stop,1000, "scissors");
-                score(i,j);
+                setTimeout(pause,1000, "scissors");
+                score(playerScore,computerScore);
                 break;
 
             case 3:
                 document.getElementById("paper").classList.toggle('buttonClick');
-                i++;
+                playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Ножницы режут бумагу';
-                setTimeout(stop,1000, "paper");
-                score(i,j);
+                setTimeout(pause,1000, "paper");
+                score(playerScore,computerScore);
                 break;    
         }
     break; 
@@ -123,78 +117,71 @@ function checkNumber(num){
         {
             case 1:
                 document.getElementById("rock").classList.toggle('buttonClick');
-                i++;
+                playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Бумага oбёртывает камень';
-                setTimeout(stop,1000, "rock");
-                score(i,j);
+                setTimeout(pause,1000, "rock");
+                score(playerScore,computerScore);
                 break;
 
             case 2:
                 document.getElementById("scissors").classList.toggle('buttonClick');
-                j++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Ножницы режут бумагу';
-                setTimeout(stop,1000, "scissors");
-                score(i,j);
+                setTimeout(pause,1000, "scissors");
+                score(playerScore,computerScore);
                 break;
 
             case 3: 
                 document.getElementById("paper").classList.toggle('buttonClick');
-                i++;
-                j++;
+                playerScore++;
+                computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
-                setTimeout(stop,1000, "paper");
-                score(i,j);
+                setTimeout(pause,1000, "paper");
+                score(playerScore,computerScore);
                 break;
         }
     break;     
     
 }
 
+if(k==amountOfBatches){
 
-if(k==num){
-
-    if(i>j){
-        alert(`Вы выиграли! ${i}:${j}`);
+    if(playerScore>computerScore){
+        modalAnswer(`Вы выиграли! ${playerScore}:${computerScore}`);
     }
 
-    else if(i<j){
-        alert(`Вы проиграли! ${i}:${j}`);
+    else if(playerScore<computerScore){
+        modalAnswer(`Вы програли! ${playerScore}:${computerScore}`);
     }
 
-    else if(i==j){
-        alert(`Ничья! ${i}:${j}`);
-    }
-    
-    let question=confirm("Хотите сыграть ещё?");
-
-    if(question==false){
-       document.querySelector('.close').click();
-    }
-    else{
-        play();
+    else if(playerScore==computerScore){
+        modalAnswer(`Ничья! ${playerScore}:${computerScore}`);
+        
     }
 }
+
 }
 
-function score(i, j){
-    document.getElementById('square').innerHTML=`${i}:${j}`;
+function score(playerScore, computerScore){
+    document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;
 
-    if(i>j){
+    if(playerScore>computerScore){
         document.getElementById('score').innerHTML='Вы выигрываете!';
     }
 
-    else if(i<j){
+    else if(playerScore<computerScore){
         document.getElementById('score').innerHTML='Вы проигрываете!';
+        
     }
 
-    else if(i==j){
+    else if(playerScore==computerScore){
         document.getElementById('score').innerHTML='Ничья!';
     }
 }
 
 function sameChoicesPlayer(choice){
     if(choice>=3){
-        alert("Вы не можете 3 раза подряд выбирать один и тот же вариант");
+        document.querySelector('.openModal').click();
         k--;
         computerChoice-=7;
     }
@@ -210,10 +197,10 @@ function sameChoicesComputer(computerChoice){
       computerChoice=(Math.floor(Math.random()*3)+1); 
       sameChoicesComputer(computerChoice); 
     }
-    checkChoice(computerChoice)
+    determineComputerChoice(computerChoice)
     return computerChoice;
 }
-function checkChoice(computerChoice){
+function determineComputerChoice(computerChoice){
 
        if(computerChoice==1) {
         rockComputer++;
@@ -234,6 +221,11 @@ function checkChoice(computerChoice){
         return paperComputer;
       }
 }
-function stop(choice){
+function pause(choice){
   document.getElementById(choice).classList.toggle('buttonClick');
+}
+
+function modalAnswer(string){
+    document.getElementById('headerModalAnswer').innerHTML=string+ ' '+ "Хотите сыграть ещё?";
+    document.querySelector('.openModalAnswer').click();
 }
