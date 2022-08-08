@@ -257,20 +257,19 @@
     h1{
         font-size: 150%;
     }
-    #description,
+ #description,
     #score{
-        font-size: 18px;
+        font-size: 14px;
     }
-    .modal {
-        width: 300px;
-        font-size: 12px;
-    }
-    
-    .headerModal{
-        font-size:16px;
-    }
+.modal {
+     width: 300px;
+     font-size: 12px;
+ }
+ .headerModal{
+      font-size:14px;
+ }
     #square{
-    width: 70px;
-    font-size: 26px;
+    width: 60px;
+    font-size: 20px;
     }
 }
