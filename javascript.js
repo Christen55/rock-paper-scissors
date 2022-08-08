@@ -12,6 +12,7 @@ let computerChoice;
 
 function play(){
     amountOfBatches=+document.getElementById('number').value;
+    checkNumber(amountOfBatches);
     playerScore=0;
     computerScore=0;
     k=0;
@@ -20,11 +21,17 @@ function play(){
     paperPlayer=0;
     document.getElementById('description').innerHTML='Начнем!';
     document.getElementById('score').innerHTML='Удачи!';
-    document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;    
+    document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;  
+    document.getElementById('headerModalNumber').innerHTML='Сколько партий вы хотите сыграть?!';  
+}
+function checkNumber(amountOfBatches){
+    let additionalNumber=(Math.round(amountOfBatches));
+    if(additionalNumber != amountOfBatches || amountOfBatches==0){   
+    setTimeout(modalNumber, 1);
+    }
 }
 
-function random(playerChoice){
-
+function random(playerChoice){ 
     computerChoice=(Math.floor(Math.random()*3)+1);
     determineComputerChoice(computerChoice);
       
@@ -226,6 +233,11 @@ function pause(choice){
 }
 
 function modalAnswer(string){
-    document.getElementById('headerModalAnswer').innerHTML=string+ ' '+ "Хотите сыграть ещё?";
+    document.getElementById('headerModalAnswer').innerHTML=string+ '<br />'+ "Хотите сыграть ещё?";
     document.querySelector('.openModalAnswer').click();
+}
+
+function modalNumber(){
+    document.getElementById('headerModalNumber').innerHTML='Введите целое число не равное нулю!';
+    document.querySelector('.requestNumberOfBatches').click();
 }
