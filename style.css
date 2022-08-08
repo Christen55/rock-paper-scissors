@@ -128,6 +128,7 @@
                 align-items: center;
                 flex:1;
                 align-self: center;
+                padding: 8px;
             }
                 #description,
                 #score{
@@ -258,25 +259,28 @@
     h1{
         font-size: 150%;
     }
-    #description,
-    #score{
-        font-size: 14px;
-    }
-    #score{
-        width: 200px; 
-    }
-    .modal {
+     .modal {
         width: 300px;
         font-size: 12px;
     }
     .headerModal{
         font-size:14px;
-    }
+    } 
     #qount{
         flex-direction:row;
     }
     #square{
         width: 60px;
         font-size: 20px;
+    }
+    #description,
+    #score{
+        font-size: 14px;
+    }
+    #description{
+        padding-top: 4px;
+    }
+    #score{
+        width: 200px; 
     }
 }
