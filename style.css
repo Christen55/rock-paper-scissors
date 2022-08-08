@@ -107,8 +107,6 @@
                     text-align: center;
                 }
 
-    
-
     #field{
         display: none;
         position:static;
@@ -128,14 +126,14 @@
                 align-items: center;
                 flex:1;
                 align-self: center;
-                padding: 8px;
+                padding: 10px;
             }
                 #description,
                 #score{
                     font-size: 24px;
                     color:rgb(38, 51, 230);
                     padding: 16px;
-                    flex:1;
+                    flex: 1;
                 }
 
                 #square{
@@ -146,7 +144,7 @@
                     padding: 4px;
                     width: 100px;
                     height: max-content; 
-                    flex:1;
+                    flex: 1;
                 }
 
             #table{
@@ -246,10 +244,11 @@
         box-shadow: 0 0 10px rgba(19, 18, 18, 0.5);
     }
             
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1800px){
     h1{
         font-size: 200%;
     }
+
     #fieldClose{
         flex-direction: column;
     }
@@ -259,28 +258,32 @@
     h1{
         font-size: 150%;
     }
-     .modal {
+    .modal{
         width: 300px;
         font-size: 12px;
     }
     .headerModal{
         font-size:14px;
-    } 
+    }
     #qount{
-        flex-direction:row;
+        flex-direction: row;
+        padding-bottom: 0px;
     }
     #square{
-        width: 60px;
-        font-size: 20px;
+    width: 60px;
+    font-size: 20px;
     }
     #description,
     #score{
         font-size: 14px;
     }
-    #description{
-        padding-top: 4px;
-    }
     #score{
-        width: 200px; 
+        width: 200px;
     }
+    #table{
+        padding-top: 0px;
+    }
+    #description{
+        padding-top: 8px;
+    }  
 }
