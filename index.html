@@ -14,51 +14,126 @@
     <h1>Сыграй со мной в камень, ножницы, бумагу!</h1>
 
     <div class="question">
-       <img src="https://kartinkin.net/uploads/posts/2022-02/thumbs/1645868962_57-kartinkin-net-p-voprosi-kartinki-62.jpg" alt="?" class="img">
-       <div class="help">
-        Вводите количество партий, в которое хотите сыграть и  выбираете один из трёх вариантов: "Камень" , "Ножницы" или "Бумага". Компьютер также выбирает один из этих вариантов.
-        <br>Победитель определяется по следующим правилам:
+       <a href="#help"><img src="https://kartinkin.net/uploads/posts/2022-02/thumbs/1645868962_57-kartinkin-net-p-voprosi-kartinki-62.jpg" alt="?" class="img"></a>
+       <div id="help">
+            <div class="modal">
+                <div class="icon">!</div>
+                <div class="content">
+    
+                    <div class="title">
+                        <div class="headerModal">Правила игры</div>
+                        <div class="close-button"><a href ="#field">✖</a></div>
+                    </div>
 
-        Бумага побеждает камень («бумага обёртывает камень»).
-        Камень побеждает ножницы («камень затупляет или ломает ножницы»).
-        Ножницы побеждают бумагу («ножницы разрезают бумагу»).
-        Если игроки показали одинаковый знак, то засчитывается ничья и игра переигрывается.
-        <br>Нельзя ставить любой знак больше 3 раз подряд
-       </div>
+                     Вводите количество партий, в которое хотите сыграть и  выбираете один из трёх вариантов: "Камень" , "Ножницы" или "Бумага". Компьютер также выбирает один из этих вариантов.
+                    <br>Победитель определяется по следующим правилам:
+                    <br>Бумага побеждает камень («бумага обёртывает камень»).
+                    <br>Камень побеждает ножницы («камень затупляет или ломает ножницы»).
+                    <br>Ножницы побеждают бумагу («ножницы разрезают бумагу»).
+                    <br>Если игроки показали одинаковый знак, то засчитывается ничья и игра переигрывается.
+                    <br>Нельзя ставить любой знак больше 3-х раз подряд.
+               
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
 <div class="game">
 
-<button><a href="#field" onclick="play();">Сыграть</a></button>
+    <button><a href="#requestNumberOfBatches" class="requestNumberOfBatches">Сыграть</a></button>
 
-<div id="field">
-<div id="fieldClose">
-<div id ="qount">
-    <div id="score">Удачи!</div>
-    <div id="square">0:0</div>
+    <div id="requestNumberOfBatches">
+        <div class="modal">
+        
+            <div class="content">
+
+                <div class="title">
+                    <div class="headerModal">Сколько партий вы хотите сыграть?</div>
+                    <div class="close-button"><a href ="#field">✖</a></div>
+                </div>
+
+                <div class="text">
+                    <input type="number" id="number">
+                    <button id="ok" class="ok" onclick="play()"><a href ="#field">Ok</a></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="field">
+        <div id="fieldClose">
+            <div id ="qount">
+                <div id="score">Удачи!</div>
+                <div id="square">0:0</div>
+            </div>
+
+            <div id="table">
+
+                <div id="description">Начнём!</div>
+
+                <div class="computerChoice">
+                    <div><img src="rockComputer.jpeg" alt="Камень" id="rock" class="button"></div>
+                    <div><img src="scissorsComputer.jpeg" alt="Ножницы" id="scissors" class="button"></div>
+                    <div><img src="paperComputer.jpeg" alt="Бумага" id="paper" class="button"></div> 
+                </div>
+
+                <div class="playerChoice">
+                    <div onclick="random('rock');"><img src="rockPlayer.jpeg" alt="Камень" class="button"></div>
+                    <div onclick="random('scissors');"><img src="scissorsPlayer.jpeg" alt="Ножницы" class="button"></div>
+                    <div onclick="random('paper');"><img src="paperPlayer.jpeg" alt="Бумага" class="button"></div> 
+                </div>
+
+            </div>
+
+            <span id="close"><a href ="#" class="close">Закрыть</a></span>
+        </div>
+    </div> 
+
 </div>
 
-<div id="table">
-    <div id="description">Начнём!</div>
-<div class="computerChoice">
-    <div><img src="rockComputer.jpeg" alt="Камень" id="rock" class="button"></div>
-    <div><img src="scissorsComputer.jpeg" alt="Ножницы" id="scissors" class="button"></div>
-    <div><img src="paperComputer.jpeg" alt="Бумага" id="paper" class="button"></div> 
+<a href="#yourResult" class="openModal"></a>
+
+<div id="yourResult">
+    <div class="modal">
+        <div class="icon">!</div>
+        <div class="content">
+
+            <div class="title">
+                <div id ="headerModal" class="headerModal">Вы не можете 3 раза подряд выбирать один и тот же вариант</div>
+            </div>
+
+            <div class="buttons">
+                <button class="continue"><a href ="#field">Oк</a></button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="playerChoice">
-    <div onclick="random('rock');"><img src="rockPlayer.jpeg" alt="Камень" class="button"></div>
-    <div onclick="random('scissors');"><img src="scissorsPlayer.jpeg" alt="Ножницы" class="button"></div>
-    <div onclick="random('paper');"><img src="paperPlayer.jpeg" alt="Бумага" class="button"></div> 
+
+<a href="#yourAnswer" class="openModalAnswer"></a>
+
+<div id="yourAnswer">
+    <div class="modal">
+        <div class="icon">!</div>
+        <div class="content">
+
+            <div class="title">
+                <div id ="headerModalAnswer" class="headerModal"></div>
+                <div class="close-button"><a href ="#field">✖</a></div>
+            </div>
+
+            <div class="buttons">
+                <button class="continue"><a href ="#requestNumberOfBatches" onclick="play();">Да</a></button>
+                <button class="cancel"><a href ="#">Нет</a></button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-
-</div>
-<span id="close"><a href ="#" class="close">Закрыть</a></span>
-</div>
-</div> 
-</div>
 
 </body>
 </html>
