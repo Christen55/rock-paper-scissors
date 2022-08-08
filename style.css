@@ -5,38 +5,22 @@
     h1{
         color:blueviolet;
         text-align: center;
-    }
-
-    .question:hover .help{
-        display: block;
-    }   
+    }  
         .img{
             width: 70px;
             height: 70px;
             border: 3px solid rgb(82, 15, 206);
             border-radius: 35px;
             display: inline-block;
-            margin-left: 100%;
         }
 
-        .help
+        #help
         {
             display: none;
-            width:50%;
-            height:min-content;
-            text-align: center;
-            border-style:solid;
-            border-color:rgb(38, 51, 230);
-            border-radius: 10px;
-            display: none;
-            position: absolute;
-            top:0;
-            bottom:0;
-            right:0;
-            left: 0;
-            margin: auto;
-            padding: 8px;
-            background-color: white;
+            position: static;
+        }
+        #help:target{
+            display: block;
         }
 
 .game{
@@ -44,7 +28,86 @@
 }
     a{
         text-decoration: none;
+        color: black;
     }
+
+    #requestNumberOfBatches{
+        display: none;
+        position:static;
+    }
+
+    #requestNumberOfBatches:target{
+        display: block;
+    }
+        .modal {
+            background: white;
+            width: 480px;
+            height: max-content;
+            border-radius: 10px;
+            box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+            display:flex;
+            justify-content: space-between;
+            padding: 12px;
+            gap:12px;
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left: 0;
+            margin: auto;
+        }
+            .icon {
+                color: royalblue;
+                font-size: 26px;
+                font-weight: 700;
+                background: lavender;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .content{
+                display: flex;
+                flex-direction: column;
+                gap:12px;
+                flex:1;
+            }
+                .title{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 8px;
+                }
+                    .headerModal{
+                        font-weight: bold;
+                        font-size:larger;
+                        color:rgb(38, 51, 230);
+                        text-align: center;
+                        flex:80%;
+                    }
+
+                    .close-button {
+                        background: #eee;
+                        border-radius: 50%;
+                        color: #888;
+                        font-weight: 400;
+                        font-size: 16px;
+                        height: 24px;
+                        width: 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      }
+                      
+                .text{
+                    text-align: center;
+                }
+
+    
 
     #field{
         display: none;
@@ -127,9 +190,60 @@
                 flex:1;
             }
 
+#yourResult{
+    display: none;
+    position:static;
+}
             
+#yourResult:target{
+    display: block;
+}    
+    .buttons{
+        display: flex;
+        justify-content: flex-end;
+    }
+        .continue {
+            background: royalblue;
+            border: 1px solid royalblue;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
 
- @media screen and (max-width: 800px){
+        .continue a{
+            color: white;
+        }
+
+        .continue:hover{
+            background-color: #073d94;
+            box-shadow: 0 0 10px rgba(19, 18, 18, 0.5);
+        }
+
+#yourAnswer{
+    display: none;
+    position:static;
+}
+        
+#yourAnswer:target{
+    display: block;
+}
+    .cancel {
+        background: white;
+        border: 1px solid #ddd;
+        color: royalblue;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+
+    .cancel a{
+        color: royalblue;
+    }
+    
+    .cancel:hover{
+        background-color: #d9dfeb;
+        box-shadow: 0 0 10px rgba(19, 18, 18, 0.5);
+    }
+            
+@media screen and (max-width: 800px){
     h1{
         font-size: 250%;
     }
@@ -137,8 +251,8 @@
     #fieldClose{
         flex-direction: column;
     }
+}
 
- }
 @media screen and (max-width: 400px) { 
     h1{
         font-size: 200%;
