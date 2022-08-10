@@ -1,6 +1,6 @@
 let playerScore=0;
 let computerScore=0;
-let k=0;
+let qounterOfBatches=0;
 let amountOfBatches;
 let rockPlayer=0;
 let scissorsPlayer=0;
@@ -15,7 +15,7 @@ function play(){
     checkNumber(amountOfBatches);
     playerScore=0;
     computerScore=0;
-    k=0;
+    qounterOfBatches=0;
     rockPlayer=0;
     scissorsPlayer=0;
     paperPlayer=0;
@@ -27,7 +27,7 @@ function play(){
 function checkNumber(amountOfBatches){
     let additionalNumber=(Math.round(amountOfBatches));
     if(additionalNumber != amountOfBatches || amountOfBatches==0){   
-    setTimeout(modalNumber, 1);
+    setTimeout(openModalNumber, 1);
     }
 }
 
@@ -36,7 +36,7 @@ function random(playerChoice){
     determineComputerChoice(computerChoice);
       
       if(rockComputer>=3 || scissorsComputer>=3 || paperComputer>=3){
-          computerChoice = sameChoicesComputer(computerChoice);
+          computerChoice = checkSameChoicesComputer(computerChoice);
       } 
 
     switch(playerChoice){
@@ -45,8 +45,8 @@ function random(playerChoice){
         rockPlayer++;
         scissorsPlayer=0;
         paperPlayer=0;
-        k++;
-        sameChoicesPlayer(rockPlayer);
+        qounterOfBatches++;
+        checkSameChoicesPlayer(rockPlayer);
 
         switch(computerChoice)
         {
@@ -56,7 +56,7 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
                 setTimeout(pause,1000, "rock");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 2: 
@@ -64,7 +64,7 @@ function random(playerChoice){
                 playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Камень затупляет ножницы';
                 setTimeout(pause,1000, "scissors"); 
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 3:  
@@ -72,7 +72,7 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Бумага oбёртывает камень';
                 setTimeout(pause,1000, "paper");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break; 
         }
     break;
@@ -81,8 +81,8 @@ function random(playerChoice){
         scissorsPlayer++;
         rockPlayer=0;
         paperPlayer=0;
-        k++;
-        sameChoicesPlayer(scissorsPlayer);
+        qounterOfBatches++;
+        checkSameChoicesPlayer(scissorsPlayer);
 
         switch(computerChoice)
         {
@@ -91,7 +91,7 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Камень затупляет ножницы';
                 setTimeout(pause,1000, "rock");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 2:
@@ -100,7 +100,7 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
                 setTimeout(pause,1000, "scissors");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 3:
@@ -108,7 +108,7 @@ function random(playerChoice){
                 playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Ножницы режут бумагу';
                 setTimeout(pause,1000, "paper");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;    
         }
     break; 
@@ -117,8 +117,8 @@ function random(playerChoice){
         paperPlayer++;
         rockPlayer=0;
         scissorsPlayer=0;
-        k++;
-        sameChoicesPlayer(paperPlayer);
+        qounterOfBatches++;
+        checkSameChoicesPlayer(paperPlayer);
 
         switch(computerChoice)
         {
@@ -127,7 +127,7 @@ function random(playerChoice){
                 playerScore++;
                 document.getElementById('description').innerHTML='Вы выиграли! Бумага oбёртывает камень';
                 setTimeout(pause,1000, "rock");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 2:
@@ -135,7 +135,7 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Вы проиграли! Ножницы режут бумагу';
                 setTimeout(pause,1000, "scissors");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
 
             case 3: 
@@ -144,31 +144,31 @@ function random(playerChoice){
                 computerScore++;
                 document.getElementById('description').innerHTML='Ничья!';
                 setTimeout(pause,1000, "paper");
-                score(playerScore,computerScore);
+                showScore(playerScore,computerScore);
                 break;
         }
     break;     
     
 }
 
-if(k==amountOfBatches){
+if(qounterOfBatches==amountOfBatches){
 
     if(playerScore>computerScore){
-        setTimeout(modalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
+        setTimeout(openModalAnswer, 1000, `Вы выиграли! ${playerScore}:${computerScore}`);
     }
 
     else if(playerScore<computerScore){
-        setTimeout(modalAnswer, 1000, `Вы проиграли! ${playerScore}:${computerScore}`);
+        setTimeout(openModalAnswer, 1000, `Вы проиграли! ${playerScore}:${computerScore}`);
     }
 
     else if(playerScore==computerScore){
-        setTimeout(modalAnswer, 1000, `Ничья! ${playerScore}:${computerScore}`);
+        setTimeout(openModalAnswer, 1000, `Ничья! ${playerScore}:${computerScore}`);
     }
 }
 
 }
 
-function score(playerScore, computerScore){
+function showScore(playerScore, computerScore){
     document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;
 
     if(playerScore>computerScore){
@@ -185,14 +185,14 @@ function score(playerScore, computerScore){
     }
 }
 
-function sameChoicesPlayer(choice){
+function checkSameChoicesPlayer(choice){
     if(choice>=3){
         document.querySelector('.openModal').click();
-        k--;
+        qounterOfBatches--;
         computerChoice-=7;
     }
 }
-function sameChoicesComputer(computerChoice){
+function checkSameChoicesComputer(computerChoice){
     rockComputer=0;
     scissorsComputer=0;
     paperComputer=0; 
@@ -201,7 +201,7 @@ function sameChoicesComputer(computerChoice){
     
     if(additionalNumber==computerChoice){
       computerChoice=(Math.floor(Math.random()*3)+1); 
-      sameChoicesComputer(computerChoice); 
+      checkSameChoicesComputer(computerChoice); 
     }
     determineComputerChoice(computerChoice)
     return computerChoice;
@@ -231,7 +231,7 @@ function pause(choice){
   document.getElementById(choice).classList.toggle('buttonClick');
 }
 
-function modalAnswer(string){
+function openModalAnswer(string){
     document.getElementById('headerModalAnswer').innerHTML=string+ '<br />'+ "Хотите сыграть ещё?";
     document.querySelector('.openModalAnswer').click();
     playerScore=0;
@@ -241,7 +241,7 @@ function modalAnswer(string){
     document.getElementById('square').innerHTML=`${playerScore}:${computerScore}`;
 }
 
-function modalNumber(){
+function openModalNumber(){
     document.getElementById('headerModalNumber').innerHTML='Введите целое число не равное нулю!';
     document.querySelector('.requestNumberOfBatches').click();
 }
