@@ -9,7 +9,6 @@ let rockComputer=0;
 let scissorsComputer=0;
 let paperComputer=0;
 let computerChoice;
-
 function play(){
     amountOfBatches=+document.getElementById('number').value;
     checkNumber(amountOfBatches);
